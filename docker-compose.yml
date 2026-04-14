@@ -1,0 +1,13 @@
+services:
+  intent-router:
+    build: .
+    container_name: intent-router-service
+    ports:
+      - "48081:8080"
+    volumes:
+      - ./models:/app/models
+      - ./config:/app/config
+    environment:
+      APP_CONFIG: /app/config/app.yaml
+      POLICY_CONFIG: /app/config/policy.yaml
+    restart: unless-stopped

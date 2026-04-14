@@ -1,0 +1,40 @@
+.DS_Store
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.python-version
+
+.venv/
+venv/
+
+.idea/
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Data / Models
+data/
+models/
+artifacts/
+outputs/
+runs/
+
+# ML file
+*.pt
+*.pth
+*.bin
+*.onnx
+*.ckpt
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.parquet
+
+# Temp
+tmp/
+cache/

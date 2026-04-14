@@ -1,0 +1,19 @@
+service:
+  name: intent-router-service
+  port: 8080
+  debug: false
+
+models:
+  embedding_model_dir: /app/models/embedding/bge-small-zh-v1.5
+  classifier_model_dir: /app/models/classifier/v3
+  artifacts_dir: /app/models/artifacts
+
+thresholds:
+  ambiguity_margin: 0.08
+  classifier_override_threshold: 0.80
+  risky_pair_override_threshold: 0.55
+
+features:
+  enable_context_enricher: true
+  enable_classifier: true
+  enable_clarification: true

@@ -1,0 +1,19 @@
+high_risk_pairs:
+  - [ask_howto, trigger_workflow]
+  - [create_ticket, trigger_workflow]
+  - [update_ticket, trigger_workflow]
+  - [update_ticket, summarize_content]
+  - [ask_knowledge, query_status]
+
+question_tokens:
+  - 怎么
+  - 如何
+  - 哪一步
+  - 为什么
+  - 是否
+  - 什么时候
+
+clarification_templates:
+  ask_howto_vs_trigger_workflow: "你是想查看怎么操作，还是想直接执行这个流程？"
+  create_ticket_vs_trigger_workflow: "你是想新建申请单，还是想推进已有流程？"
+  update_ticket_vs_trigger_workflow: "你是想修改当前对象，还是想直接执行流程动作？"
