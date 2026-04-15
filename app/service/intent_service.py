@@ -8,7 +8,7 @@ from app.core.config import settings
 from app.domain.policy import hybrid_decide
 
 from app.model.embed_index import EmbeddingIntentIndex
-from app.model.predictor import IntentPredictor
+from app.model.embedding_predictor import IntentPredictor
 from app.model.classifier_predictor import ClassifierPredictor
 from app.core.exceptions import ModelLoadException, PredictionException
 from app.core.logging import get_logger

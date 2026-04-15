@@ -35,9 +35,7 @@ class EmbeddingIntentIndex:
         self.embeddings: np.ndarray | None = None
         self.samples: list[IntentSample] = []
 
-    # =========================
     # 构建索引（训练阶段用）
-    # =========================
     def build(self, samples: list[IntentSample]) -> None:
         self.samples = samples
         texts = [sample.text for sample in samples]
@@ -51,9 +49,7 @@ class EmbeddingIntentIndex:
 
         self.embeddings = emb.astype(np.float32)
 
-    # =========================
     # 保存索引
-    # =========================
     def save(self, artifacts_dir: Path) -> None:
         artifacts_dir.mkdir(parents=True, exist_ok=True)
 
@@ -70,9 +66,7 @@ class EmbeddingIntentIndex:
             encoding="utf-8",
         )
 
-    # =========================
     # 加载索引（服务启动用）
-    # =========================
     def load(self, artifacts_dir: Path) -> None:
         emb_path = artifacts_dir / "train_embeddings.npy"
         meta_path = artifacts_dir / "train_metadata.json"
@@ -89,9 +83,7 @@ class EmbeddingIntentIndex:
         self.embeddings = emb.astype(np.float32)
         self.samples = [IntentSample.model_validate(item) for item in metadata]
 
-    # =========================
     # 向量检索
-    # =========================
     def search(self, query: str, top_k: int = 5) -> list[SearchHit]:
         if self.embeddings is None or not self.samples:
             raise RuntimeError("Index is empty.")
@@ -125,9 +117,7 @@ class EmbeddingIntentIndex:
 
         return hits
 
-    # =========================
     # 意图聚合（RRF-like）
-    # =========================
     @staticmethod
     def aggregate_intent_scores(hits: list[SearchHit]) -> dict[str, float]:
         """
